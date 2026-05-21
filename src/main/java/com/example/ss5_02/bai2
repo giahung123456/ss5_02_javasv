@@ -1,0 +1,10 @@
+Chức năng	Method	URL	Query params (nếu có)	Status thành công	Status lỗi (ví dụ)
+Lấy danh sách sách (phân trang & lọc theo tác giả)	GET	/books	?page=1&limit=10&author=...	200 OK	400 Bad Request (sai định dạng tham số)
+Lấy chi tiết một cuốn sách	GET	/books/:id	Không	200 OK	404 Not Found (sách không tồn tại)
+Thêm sách mới	POST	/books	Không	201 Created	400 Bad Request (thiếu trường title, author)
+Cập nhật số lượng sách (chỉ 1 trường)	PATCH	/books/:id	Không	200 OK	404 Not Found (sách không tồn tại)
+Xóa sách	DELETE	/books/:id	Không	204 No Content	404 Not Found / 400 (sách đang được mượn)
+Lấy danh sách thẻ mượn của một sách (sub-resource)	GET	/books/:bookId/loans	Không	200 OK	404 Not Found (mã sách không tồn tại)
+Tạo thẻ mượn mới	POST	/loans	Không	201 Created	400 Bad Request (sách đã hết - quantity = 0)
+Trả sách (cập nhật ngày trả)	PATCH	/loans/:id	Không	200 OK	404 Not Found (không tìm thấy thẻ mượn)
+
